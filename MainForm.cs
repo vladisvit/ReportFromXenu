@@ -33,7 +33,7 @@ namespace ReportFromXenu
         {
             FileName = Path.ChangeExtension(tbFilename.Text, ".xml");
             var root = new XElement("root");
-            root.Add(new XElement("Site", "www.frederikssund.dk", new XAttribute("AllUrls", ListReport.Count())));
+            root.Add(new XElement("Site", tbFilename.Text, new XAttribute("AllUrls", ListReport.Count())));
             var filteredData = ListReport.Where(filter);
 
             foreach (var reportData in filteredData)
