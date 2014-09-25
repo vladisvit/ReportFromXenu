@@ -138,14 +138,15 @@ namespace ReportFromXenu
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            cbFilterStatusCode.Items.AddRange(Enum.GetNames(typeof(ReportStatusCodes)));
+            cbFilterStatusCode.Items.AddRange(Enum.GetNames(typeof(ReportStatusCodes))); //TODO: it should be rewriting
             cbFilterStatusCode.SelectedItem = cbFilterStatusCode.Items[0];
+            
             var path = Path.Combine(Environment.CurrentDirectory, "Data", "export.txt");
             if (!File.Exists(path))
             {
                 throw new Exception("Please, make sure the export.txt exists in 'Data' directory!");
             }
-
+            
             ListReport = ReportData.CreateReports(path).ToList();
         }
     }
